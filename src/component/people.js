@@ -15,8 +15,8 @@ const People = (props) => {
 
   return(
     <>
-    <p>Cast: {cast}</p>
-    <p>Director: {director}</p>
+      {cast && <p>Cast: {cast}</p>}
+      {director && <p>Director: {director}</p>}
     </>
   )
 }

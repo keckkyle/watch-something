@@ -19,7 +19,6 @@ class Movie extends React.Component {
     }
 
     componentDidMount = () => {
-        window.addEventListener('resize', this.checkOverflow)
         this.setState({
             overflow: this.checkOverflow(),
         })

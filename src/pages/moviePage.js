@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Poster from '../component/poster'
 import People from '../component/people'
+import List from '../component/list'
 
 
 
@@ -27,49 +28,40 @@ class App extends React.Component {
   render(){
     const {movie} = this.state
     return(
-      <div>
+      <div className="movie-page">
         <div className='left'>
           {movie.images ? <Poster images={movie.images} /> : <></>}
           <h2 className="movie-title">{movie.title}</h2>
-          {movie.meta &&
-            <>
-              <p>{movie.meta.releaseYear}</p>
-              <p>{movie.meta.ageRating}</p>
-            </>
-          }
-          <p>{movie.running_time_friendly}</p>
-          {movie.audios ? 
-            <ul>
-              {movie.audios.map( audio =>
-                <li key={movie.id + audio}>
-                  {audio}
-                </li>
-              )}
-            </ul> : <></>
-          }
-          {movie.languages ? 
-            <ul>
-              {movie.languages.map( language =>
-                <li key={movie.id + language}>
-                  {language}
-                </li>
-              )}
-            </ul> : <></>
-          }
-          {movie.tags ? 
-            <ul>
-              {movie.tags.map( tag =>
-                <li key={movie.id + tag.id}>
-                  {tag.label}
-                </li>
-              )}
-            </ul> : <></>
-          }
+          <div className="movie-info-container">
+            <p className="movie-info">{movie.running_time_friendly}</p>
+            {movie.meta &&
+              <>
+                <p className="movie-info">{movie.meta.releaseYear}</p>
+                <p className="movie-info">{movie.meta.ageRating}</p>
+              </>
+            }
+          </div>
         </div>
 
         <div className="right">
-          <p>{movie.description}</p>
+          <p className="description">{movie.description}</p>
           {movie.people && <People people={movie.people}/>}
+          <div className='info-lists'>
+            <List title='Audio' listData={movie.audios} />
+            <List title='Captions' listData={movie.languages} />
+            {movie.tags ? 
+              <div className="list-group">
+                <p className="list-group-title">Genre:</p>
+                <ul className='list-input'>
+                  {movie.tags.map( tag =>
+                    <li key={movie.id + tag.id}>
+                      {tag.label}
+                    </li>
+                  )}
+                </ul> 
+              </div>: <></>
+            }
+          </div>
         </div>
 
       </div>  
