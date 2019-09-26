@@ -71,6 +71,10 @@ class HorizontalScroll extends React.Component {
     }
   }
 
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.updateDimensions)
+  }
+
   render(){
     return(
       <div className="scroll-container">
