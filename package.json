@@ -11,6 +11,7 @@
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.1.2",
+    "react-update-url-on-scroll": "^3.5.0",
     "reactstrap": "^8.0.1"
   },
   "scripts": {

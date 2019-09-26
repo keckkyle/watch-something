@@ -16,6 +16,7 @@ class App extends React.Component {
 
 
   componentDidMount = () => {
+    this.props.toggleMoviePage(true)
     axios.get(`https://cdn-discover.hooq.tv/v1.2/discover/titles/${this.state.id}`).then(result => {
       this.setState({
         movie: result.data.data
@@ -23,6 +24,10 @@ class App extends React.Component {
     }).catch(error => {
       console.log(error)
     })
+  }
+
+  componentWillUnmount = () => {
+    this.props.toggleMoviePage(false)
   }
 
   render(){

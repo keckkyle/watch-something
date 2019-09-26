@@ -3,12 +3,15 @@ import './App.css';
 import axios from 'axios'
 import Home from './pages/home'
 import Movie from './pages/moviePage'
-import {Switch,Route,Link} from 'react-router-dom'
+import NavBar from './component/navbar'
+import {Switch,Route} from 'react-router-dom'
 
 
 class App extends React.Component {
   state = {
     categories: [],
+    moviePage: false,
+    linksOpen: false,
   }
   
   componentDidMount = () => {
@@ -28,21 +31,34 @@ class App extends React.Component {
     })
   }
 
+  toggleMoviePage = (state) => {
+    this.setState({
+      moviePage: state,
+      linksOpen: false,
+    })
+  }
+
+  toggleLinks = () => {
+    this.setState({
+      linksOpen: !this.state.linksOpen,
+    })
+  }
+
   render(){
     return(
       <div className='content'>
-      <header>
-        <Link to='/'>
-        <div className="title">
-          <h1>Watch Something</h1>
-          <small>hooq database viewer</small>
-        </div>
-        </Link>
-      </header>
+      <NavBar 
+        categories={this.state.categories} 
+        moviePage={this.state.moviePage}
+        toggleLinks={this.toggleLinks}
+        linksOpen={this.state.linksOpen}
+      />
       <main>
         <Switch>
           <Route exact path='/' render={(props)=><Home {...props} categories={this.state.categories}/>} />
-          <Route path='/movies/:id' component={Movie} />
+          <Route exact path="/:page" render={(props)=><Home {...props} categories={this.state.categories}/>} />
+          <Route path='/movies/:id' render={(props)=><Movie {...props} toggleMoviePage={this.toggleMoviePage}/>} />
+          {/* <Route path='/movies/:id' component={Movie} /> */}
         </Switch>
       </main>
       <footer>
