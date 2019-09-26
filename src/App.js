@@ -56,9 +56,8 @@ class App extends React.Component {
       <main>
         <Switch>
           <Route exact path='/' render={(props)=><Home {...props} categories={this.state.categories}/>} />
-          <Route exact path="/:page" render={(props)=><Home {...props} categories={this.state.categories}/>} />
-          <Route path='/movies/:id' render={(props)=><Movie {...props} toggleMoviePage={this.toggleMoviePage}/>} />
-          {/* <Route path='/movies/:id' component={Movie} /> */}
+          <Route exact path="/page=:num" render={(props)=><Home {...props} categories={this.state.categories}/>} />
+          <Route exact path='/movies/:id' render={(props)=><Movie {...props} toggleMoviePage={this.toggleMoviePage}/>} />
         </Switch>
       </main>
       <footer>

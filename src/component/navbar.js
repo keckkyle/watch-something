@@ -19,7 +19,7 @@ class NavBar extends React.Component {
           </Link>
         </div>
         {this.props.moviePage ? 
-          <></>
+          <Link to='/'>Back</Link>
         :
           <div className='links-toggle' onClick={this.props.toggleLinks}>Categories</div>
         }

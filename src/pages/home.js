@@ -2,6 +2,7 @@ import React from 'react'
 import Row from '../component/row'
 import ScrollableSection from 'react-update-url-on-scroll';
 
+
 const Home = (props) => (
   <div className='home'>
     {props.categories.map((category, i) =>
