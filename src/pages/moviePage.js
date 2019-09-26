@@ -15,6 +15,7 @@ class App extends React.Component {
   }
 
 
+
   componentDidMount = () => {
     this.props.toggleMoviePage(true)
     axios.get(`https://cdn-discover.hooq.tv/v1.2/discover/titles/${this.state.id}`).then(result => {
