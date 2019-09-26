@@ -1,4 +1,72 @@
+/* html, body {
+  width: 100vw;
+  height: 100vh;
+} */
+
+.content {
+  position: relative;
+  min-height: calc(100vh - 61px);
+}
+
+header {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 61px;
+  background: #36f;
+  z-index: 1000;
+  color: white;
+  padding: 0.3rem;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+.title {
+  width: 265px;
+  text-align: center;
+}
+
+.title h1 {
+  margin: 0.5rem 0 0;
+  line-height: 0.8;
+}
+
+main {
+  margin-top: 61px;
+  padding-bottom: 40px;
+}
+
+footer {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #36f;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  font-weight: bold;
+  color: white;
+}
+
 /* movie index page */
+.home{
+  padding: 0.75rem 0;
+}
+
 .movie-category {
   margin-bottom: 2vw;
 }
@@ -148,7 +216,6 @@
   padding: 0 0.75rem;
   text-align: justify;
 }
-
 
 
 /* responsive sizing */

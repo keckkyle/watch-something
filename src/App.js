@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios'
 import Home from './pages/home'
 import Movie from './pages/moviePage'
-import {Switch,Route} from 'react-router-dom'
+import {Switch,Route,Link} from 'react-router-dom'
 
 
 class App extends React.Component {
@@ -30,10 +30,25 @@ class App extends React.Component {
 
   render(){
     return(
-      <Switch>
-        <Route exact path='/' render={(props)=><Home {...props} categories={this.state.categories}/>} />
-        <Route path='/movies/:id' component={Movie} />
-      </Switch>
+      <div className='content'>
+      <header>
+        <Link to='/'>
+        <div className="title">
+          <h1>Watch Something</h1>
+          <small>hooq database viewer</small>
+        </div>
+        </Link>
+      </header>
+      <main>
+        <Switch>
+          <Route exact path='/' render={(props)=><Home {...props} categories={this.state.categories}/>} />
+          <Route path='/movies/:id' component={Movie} />
+        </Switch>
+      </main>
+      <footer>
+        <p>Visit <a href="https://www.hooq.tv">HOOQ</a> to <em>watch something</em></p>
+      </footer>
+      </div>
     )
   }
 }
