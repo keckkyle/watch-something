@@ -12,4 +12,4 @@ Use npm to run the app. You can check that your system has npm by typing `npm -v
 
 Once you have verified you are running npm, you can type `npm start` into the terminal while in the root directory for the repository you downloaded. 
 
-In your prefered browswer open [http://localhost:3000](http://localhost:3000) to view the app.
+In your prefered browser open [http://localhost:3000](http://localhost:3000) to view the app.
